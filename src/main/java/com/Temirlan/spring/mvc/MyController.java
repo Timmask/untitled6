@@ -1,15 +1,16 @@
 package com.Temirlan.spring.mvc;
 
 import com.Temirlan.spring.mvc.entity.Employee;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
-@RequestMapping("/employee")
+@RequestMapping("/")
 public class MyController {
 
     @RequestMapping("/")
@@ -24,16 +25,17 @@ public class MyController {
         return "ask-detail-view";
     }
 
-//    @RequestMapping("/showDetails")
-//    public String showDetails(){
-//        return "show-detail-view";
-//    }
-
     @RequestMapping("/showDetails")
-    public String showDetails(@ModelAttribute("employee") Employee employee){
+    public String showDetails(
+            @Valid @ModelAttribute("employee") Employee employee,
+                              BindingResult bindingResult){
+        System.out.println(employee.getSurname().length());
+        if(bindingResult.hasFieldErrors()){
+            return "ask-detail-view";
+        }else{
+            return "show-detail-view";
+        }
 
-
-        return "show-detail-view";
     }
 
 }
