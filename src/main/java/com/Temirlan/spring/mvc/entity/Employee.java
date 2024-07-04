@@ -1,7 +1,11 @@
 package com.Temirlan.spring.mvc.entity;
 
 
-import javax.validation.constraints.*;
+
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +13,7 @@ import java.util.Map;
 
 
 public class Employee {
-    @Size(min = 2,message = "Name must be minimum 2 symbols")
+    @Length(min = 2,message = "Name must be minimum 2 symbols")
     private String name;
 
     @NotEmpty(message = "surname is required field")
@@ -37,11 +41,11 @@ public class Employee {
                 '}';
     }
 
-    public @Size(min = 2, message = "Name must be minimum 2 symbols") String getName() {
+    public @Length(min = 2, message = "Name must be minimum 2 symbols") String getName() {
         return name;
     }
 
-    public void setName(@Size(min = 2, message = "Name must be minimum 2 symbols") String name) {
+    public void setName(@Length(min = 2, message = "Name must be minimum 2 symbols") String name) {
         this.name = name;
     }
 
