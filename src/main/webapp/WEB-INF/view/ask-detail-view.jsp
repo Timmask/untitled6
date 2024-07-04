@@ -1,5 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,7 +12,7 @@
 <body>
 
 
-<from:form action="showDetails" modelAttribute="employee">
+<form:form action="showDetails" modelAttribute="employee" >
     Name<form:input path="name"/>
     <form:errors path="name" />
     <br>
@@ -36,13 +36,13 @@
     <br>
     <br>
     Foreign languages <br>
-    <from:checkboxes path="languages" items="${employee.languagesList}"/> <br>
+    <form:checkboxes path="languages" items="${employee.languagesList}"/> <br>
 
 
     <br>
     <br>
     <input type="submit">
-</from:form>
+</form:form>
 
 </body>
 </html>

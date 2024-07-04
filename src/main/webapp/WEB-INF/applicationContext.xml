@@ -13,7 +13,9 @@
 
     <context:component-scan base-package="com.Temirlan.spring.mvc" />
 
-    <mvc:annotation-driven/>
+
+
+    <mvc:annotation-driven />
 
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
